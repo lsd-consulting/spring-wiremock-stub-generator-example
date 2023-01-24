@@ -1,0 +1,15 @@
+dependencies {
+    implementation project(':api')
+
+    // spring
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+
+    implementation 'io.github.lsd-consulting:kotlin-spring-wiremock-stub-generator-example-server-api:SNAPSHOT'
+    implementation 'io.github.lsd-consulting:java-spring-wiremock-stub-generator-example-server-api:SNAPSHOT'
+
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+    implementation 'org.apache.commons:commons-lang3:3.11'
+}

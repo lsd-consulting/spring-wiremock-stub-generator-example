@@ -1,0 +1,64 @@
+sourceSets {
+    componentTest {
+        java {
+            compileClasspath += main.output + test.output
+            runtimeClasspath += main.output + test.output
+            srcDir file('src/componentTest/java')
+        }
+    }
+}
+
+configurations {
+    componentTestImplementation.extendsFrom testImplementation
+}
+
+dependencies {
+
+    // Server stubs
+    componentTestImplementation 'io.github.lsd-consulting:kotlin-spring-wiremock-stub-generator-example-server-application:SNAPSHOT:wiremock-stubs'
+    componentTestImplementation 'io.github.lsd-consulting:java-spring-wiremock-stub-generator-example-server-application:SNAPSHOT:wiremock-stubs'
+
+    // Spring
+    componentTestImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // Cucumber
+    componentTestImplementation 'io.cucumber:cucumber-spring:6.10.4'
+    componentTestImplementation 'io.cucumber:cucumber-java8:6.10.4'
+    componentTestImplementation 'io.cucumber:cucumber-junit-platform-engine:6.10.4'
+    componentTestImplementation 'de.monochromata.cucumber:reporting-plugin:4.0.89'
+
+    // jUnit
+    componentTestImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+
+    // Other
+    componentTestCompileOnly 'org.projectlombok:lombok:1.18.22'
+    componentTestImplementation "com.github.tomakehurst:wiremock-jre8-standalone:2.26.3"
+}
+
+task componentTest(type: Test) {
+    useJUnitPlatform()
+    dependsOn assemble
+
+    testClassesDirs = sourceSets.componentTest.output.classesDirs
+    classpath = sourceSets.componentTest.runtimeClasspath
+    outputs.upToDateWhen { false }
+    testLogging.showStandardStreams = true
+    mustRunAfter(test)
+}
+
+check.dependsOn(componentTest)
+
+componentTest {
+    afterSuite { desc, result ->
+        if (!desc.parent) {
+            logger.lifecycle("Component test results: (${result.testCount} tests, ${result.successfulTestCount} successes, ${result.failedTestCount} failures, ${result.skippedTestCount} skipped)")
+            if (result.testCount == 0) {
+                throw new IllegalStateException("No tests were found. Failing the build")
+            }
+        }
+    }
+}
+
+task cucumber(type: Test, group: 'verification') {
+    include '**/*RunComponentTests*'
+}

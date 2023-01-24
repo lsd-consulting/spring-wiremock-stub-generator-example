@@ -1,0 +1,11 @@
+pluginManagement {
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+    }
+}
+
+rootProject.name = 'kotlin-spring-wiremock-stub-generator-example-client'
+
+include 'api'
+include 'application'

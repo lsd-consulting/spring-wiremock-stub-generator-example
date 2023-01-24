@@ -1,0 +1,42 @@
+import org.springframework.boot.gradle.plugin.SpringBootPlugin
+
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.5.6' apply false
+    id 'org.jetbrains.kotlin.jvm' version '1.7.10'
+}
+
+group = 'io.github.lsd-consulting'
+version = System.getenv("BUILD_NUMBER") ?: 'SNAPSHOT'
+println "Build Version = ${version}"
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+java {
+    withSourcesJar()
+    withJavadocJar()
+}
+
+allprojects {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+}
+
+subprojects {
+    group = rootProject.getGroup()
+    version = rootProject.getVersion()
+
+    // Dependency Versioning
+    apply plugin: 'io.spring.dependency-management'
+    dependencyManagement {
+        imports {
+            mavenBom 'org.springframework.cloud:spring-cloud-dependencies:2020.0.4'
+            mavenBom SpringBootPlugin.BOM_COORDINATES
+        }
+    }
+}
