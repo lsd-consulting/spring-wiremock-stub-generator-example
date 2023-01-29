@@ -1,9 +1,8 @@
 dependencies {
     implementation project(':api')
 
-//    kapt project(":generator")
-    kapt 'io.github.lsd-consulting:spring-wiremock-stub-generator:1.0.8'
-    annotationProcessor 'io.github.lsd-consulting:spring-wiremock-stub-generator:1.0.8'
+    kapt 'io.github.lsd-consulting:spring-wiremock-stub-generator:1.0.16'
+    implementation 'io.github.lsd-consulting:spring-wiremock-stub-generator:1.0.16'
     compileOnly 'com.github.tomakehurst:wiremock:2.27.2'
 
     // spring

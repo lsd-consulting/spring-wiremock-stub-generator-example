@@ -1,9 +1,11 @@
 package io.lsdconsulting.stub.app.controller;
 
+import io.lsdconsulting.stub.annotation.GenerateWireMockStub;
 import io.lsdconsulting.stub.api.response.Author;
 import io.lsdconsulting.stub.api.response.ServerResponse;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.ZoneId;
@@ -11,8 +13,9 @@ import java.time.ZonedDateTime;
 
 import static java.time.Instant.EPOCH;
 
-@Validated
-@RestController("/javaServerResource")
+@GenerateWireMockStub
+@RestController
+@RequestMapping("/javaServerResource")
 public class JavaController {
 
     @GetMapping("/123")

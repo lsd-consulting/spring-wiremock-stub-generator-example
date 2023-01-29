@@ -5,7 +5,7 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'kotlin-spring-wiremock-stub-generator-example-client'
+rootProject.name = 'spring-wiremock-stub-generator-example-client'
 
 include 'api'
 include 'application'
