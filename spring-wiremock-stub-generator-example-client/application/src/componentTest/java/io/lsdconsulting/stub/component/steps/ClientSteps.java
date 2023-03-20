@@ -52,8 +52,8 @@ public class ClientSteps implements En {
         After(wireMockServer::stop);
 
         Given("^the client is ready to accept requests$", () -> {
-            kotlinControllerStub.getGetData(ServerResponse.builder().id("id").author(Author.builder().name(name1).build()).build());
-            javaControllerStub.getGetData(ServerResponse.builder().id("id").author(Author.builder().name(name2).build()).build());
+            kotlinControllerStub.getData(ServerResponse.builder().id("id").author(Author.builder().name(name1).build()).build());
+            javaControllerStub.getData(ServerResponse.builder().id("id").author(Author.builder().name(name2).build()).build());
         });
 
         When("^a request is sent to the client1$", () -> {

@@ -44,3 +44,5 @@ publishing {
         }
     }
 }
+
+compileKotlin.kotlinOptions.jvmTarget = "17"
