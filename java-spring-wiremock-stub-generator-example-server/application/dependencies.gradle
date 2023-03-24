@@ -1,8 +1,8 @@
 dependencies {
     implementation project(':api')
 
-    implementation 'io.github.lsd-consulting:spring-wiremock-stub-generator:2.0.3'
-    annotationProcessor 'io.github.lsd-consulting:spring-wiremock-stub-generator:2.0.3'
+    annotationProcessor 'io.github.lsd-consulting:spring-wiremock-stub-generator:+'
+    compileOnly 'io.github.lsd-consulting:spring-wiremock-stub-generator:+'
     compileOnly 'com.github.tomakehurst:wiremock:2.27.2'
 
     // spring
