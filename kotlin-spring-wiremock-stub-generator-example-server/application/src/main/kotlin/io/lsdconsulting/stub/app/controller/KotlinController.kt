@@ -17,11 +17,11 @@ class KotlinController {
 
     @GetMapping("/123")
     fun getData(): ServerResponse {
-        return ServerResponse.builder()
-            .id("someId")
-            .author(Author.builder().name("author").build())
-            .message("message")
-            .created(ZonedDateTime.ofInstant(Instant.EPOCH, ZoneId.systemDefault()))
-            .build()
+        return ServerResponse(
+            id = "someId",
+            author = Author(name = "author"),
+            message = "message",
+            created = ZonedDateTime.ofInstant(Instant.EPOCH, ZoneId.systemDefault())
+        )
     }
 }

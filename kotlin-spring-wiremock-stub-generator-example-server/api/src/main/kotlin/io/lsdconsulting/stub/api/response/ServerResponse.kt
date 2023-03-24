@@ -1,15 +1,10 @@
-package io.lsdconsulting.stub.api.response;
+package io.lsdconsulting.stub.api.response
 
-import lombok.Builder;
-import lombok.Value;
+import java.time.ZonedDateTime
 
-import java.time.ZonedDateTime;
-
-@Builder
-@Value
-public class ServerResponse {
-    String id;
-    String message;
-    Author author;
-    ZonedDateTime created;
-}
+data class ServerResponse (
+    private var id: String,
+    private var message: String,
+    private var author: Author,
+    private var created: ZonedDateTime
+)

@@ -1,10 +1,5 @@
-package io.lsdconsulting.stub.api.response;
+package io.lsdconsulting.stub.api.response
 
-import lombok.Builder;
-import lombok.Value;
-
-@Builder
-@Value
-public class Author {
-    String name;
-}
+data class Author(
+    private var name: String
+)
