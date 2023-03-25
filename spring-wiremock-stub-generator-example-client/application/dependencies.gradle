@@ -12,4 +12,6 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.22'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
     implementation 'org.apache.commons:commons-lang3:3.11'
+
+    implementation 'com.fasterxml.jackson.module:jackson-module-kotlin:2.14.2'
 }

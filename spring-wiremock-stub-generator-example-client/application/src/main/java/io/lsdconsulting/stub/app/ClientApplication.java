@@ -1,7 +1,7 @@
 package io.lsdconsulting.stub.app;
 
-import io.lsdconsulting.stub.client.JavaServerClient;
-import io.lsdconsulting.stub.client.KotlinServerClient;
+import io.lsdconsulting.stub.java.client.JavaServerClient;
+import io.lsdconsulting.stub.kotlin.client.KotlinServerClient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;

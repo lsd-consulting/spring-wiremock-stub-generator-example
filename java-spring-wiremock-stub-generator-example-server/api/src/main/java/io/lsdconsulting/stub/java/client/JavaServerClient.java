@@ -1,6 +1,6 @@
-package io.lsdconsulting.stub.client;
+package io.lsdconsulting.stub.java.client;
 
-import io.lsdconsulting.stub.api.response.ServerResponse;
+import io.lsdconsulting.stub.java.api.response.ServerResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 

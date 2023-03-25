@@ -1,9 +1,8 @@
 package io.lsdconsulting.stub.app.controller;
 
 import io.lsdconsulting.stub.api.response.Response;
-import io.lsdconsulting.stub.api.response.ServerResponse;
-import io.lsdconsulting.stub.client.JavaServerClient;
-import io.lsdconsulting.stub.client.KotlinServerClient;
+import io.lsdconsulting.stub.java.client.JavaServerClient;
+import io.lsdconsulting.stub.kotlin.client.KotlinServerClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,8 +20,8 @@ public class ClientController {
     private final JavaServerClient javaServerClient;
 
     @GetMapping("/v1/{id}")
-    public Response getData1(@PathVariable final String id) {
-        ServerResponse serverResponse = kotlinServerClient.getServerData();
+    public Response getData1(@PathVariable @SuppressWarnings("unused") final String id) {
+        var serverResponse = kotlinServerClient.serverData();
         return Response.builder()
                 .id(serverResponse.getId())
                 .name(serverResponse.getAuthor().getName())
@@ -30,8 +29,8 @@ public class ClientController {
     }
 
     @GetMapping("/v2/{id}")
-    public Response getData2(@PathVariable final String id) {
-        ServerResponse serverResponse = javaServerClient.getServerData();
+    public Response getData2(@PathVariable @SuppressWarnings("unused") final String id) {
+        var serverResponse = javaServerClient.getServerData();
         return Response.builder()
                 .id(serverResponse.getId())
                 .name(serverResponse.getAuthor().getName())

@@ -1,4 +1,4 @@
-package io.lsdconsulting.stub.api.response;
+package io.lsdconsulting.stub.java.api.response;
 
 import lombok.Builder;
 import lombok.Value;

@@ -1,9 +1,8 @@
 package io.lsdconsulting.stub.app.controller;
 
 import io.lsdconsulting.stub.annotation.GenerateWireMockStub;
-import io.lsdconsulting.stub.api.response.Author;
-import io.lsdconsulting.stub.api.response.ServerResponse;
-import org.springframework.validation.annotation.Validated;
+import io.lsdconsulting.stub.java.api.response.Author;
+import io.lsdconsulting.stub.java.api.response.ServerResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
